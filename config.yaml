@@ -35,6 +35,35 @@ plugins:
       tplinksmartplug: tplinksmartplug
   tplinksmartplug:
     _config_version: 10
+    arrSmartplugs:
+    - autoConnect: true
+      autoConnectDelay: 10
+      autoDisconnect: true
+      autoDisconnectDelay: 0
+      btnColor: '#808080'
+      countdownOffDelay: 1
+      countdownOnDelay: 1
+      currentState: unknown
+      displayWarning: true
+      emeter:
+        get_realtime: {}
+      event_on_disconnect: false
+      event_on_error: false
+      gcodeEnabled: false
+      gcodeOffDelay: 0
+      gcodeOnDelay: 0
+      icon: icon-bolt
+      ip: 192.168.0.20
+      label: ''
+      sysCmdOff: false
+      sysCmdOffDelay: 0
+      sysCmdOn: false
+      sysCmdOnDelay: 0
+      sysRunCmdOff: ''
+      sysRunCmdOn: ''
+      thermal_runaway: false
+      useCountdownRules: false
+      warnPrinting: false
   tracking:
     enabled: true
     unique_id: d62b5076-2180-4c92-8d5d-36639f049950
