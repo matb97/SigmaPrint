@@ -1,0 +1,3 @@
+Execute the following command
+wget https://github.com/matb97/raw/master/build.sh
+./build.sh
