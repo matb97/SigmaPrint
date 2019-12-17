@@ -49,5 +49,5 @@ pip install "https://github.com/eyal0/OctoPrint-PrintTimeGenius/archive/master.z
 pip install "https://github.com/jneilliii/OctoPrint-TPLinkSmartplug/archive/master.zip"
 pip install "https://github.com/marian42/octoprint-preheat/archive/master.zip"
 pip install "https://github.com/BrokenFire/OctoPrint-SimpleEmergencyStop/archive/master.zip"
-pip install "https://github.com/TheSpaghettiDetective/OctoPrint-TheSpaghettiDetective/archive/master.zip"
+#pip install "https://github.com/TheSpaghettiDetective/OctoPrint-TheSpaghettiDetective/archive/master.zip"
 sudo shutdown -r now
