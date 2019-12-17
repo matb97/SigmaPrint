@@ -26,6 +26,7 @@ wget https://github.com/foosel/OctoPrint/raw/master/scripts/octoprint.init && su
 wget https://github.com/matb97/SigmaPrint/raw/master/octoprint.default && sudo mv octoprint.default /etc/default/octoprint
 sudo chmod +x /etc/init.d/octoprint
 sudo update-rc.d octoprint defaults
+deactivate
 cd ~
 #git clone https://github.com/jacksonliam/mjpg-streamer.git
 #cd mjpg-streamer/mjpg-streamer-experimental
