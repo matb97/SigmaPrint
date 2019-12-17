@@ -31,9 +31,6 @@ git clone https://github.com/jacksonliam/mjpg-streamer.git
 cd mjpg-streamer/mjpg-streamer-experimental
 export LD_LIBRARY_PATH=.
 make
-wget https://github.com/matb97/SigmaPrint/raw/master/_default.profile && sudo mv _default.profile /home/pi/.octoprint/printerProfiles/_default.profile
-wget https://github.com/matb97/SigmaPrint/raw/master/config.yaml && sudo mv config.yaml /home/pi/.octoprint/config.yaml
-wget https://github.com/matb97/SigmaPrint/raw/master/users.yaml && sudo mv users.yaml /home/pi/.octoprint/users.yaml
 cd ~
 mkdir scripts
 wget https://github.com/matb97/SigmaPrint/raw/master/webcam && sudo mv webcam /home/pi/scripts/webcam
@@ -50,4 +47,8 @@ pip install "https://github.com/jneilliii/OctoPrint-TPLinkSmartplug/archive/mast
 pip install "https://github.com/marian42/octoprint-preheat/archive/master.zip"
 pip install "https://github.com/BrokenFire/OctoPrint-SimpleEmergencyStop/archive/master.zip"
 #pip install "https://github.com/TheSpaghettiDetective/OctoPrint-TheSpaghettiDetective/archive/master.zip"
+cd ~
+wget https://github.com/matb97/SigmaPrint/raw/master/_default.profile && sudo mv _default.profile /home/pi/.octoprint/printerProfiles/_default.profile
+wget https://github.com/matb97/SigmaPrint/raw/master/config.yaml && sudo mv config.yaml /home/pi/.octoprint/config.yaml
+wget https://github.com/matb97/SigmaPrint/raw/master/users.yaml && sudo mv users.yaml /home/pi/.octoprint/users.yaml
 sudo shutdown -r now
