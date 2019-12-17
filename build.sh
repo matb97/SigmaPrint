@@ -15,7 +15,7 @@ sudo apt upgrade -y
 #sudo apt autoremove -y
 cd ~
 sudo apt install -y python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
-#mkdir OctoPrint && cd OctoPrint
+mkdir OctoPrint && cd OctoPrint
 #virtualenv venv
 source venv/bin/activate
 pip install pip --upgrade
