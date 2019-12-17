@@ -3,5 +3,5 @@
 3. Change password
 4. Reboot
 5. Execute the following commands
-    wget https://github.com/matb97/SigmaPrint/raw/master/build.sh
+    wget https://github.com/matb97/SigmaPrint/raw/master/build.sh && sudo chmod +x build.sh
     ./build.sh
