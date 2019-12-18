@@ -18,7 +18,7 @@ mkdir OctoPrint && cd OctoPrint
 virtualenv venv
 source venv/bin/activate
 pip install pip --upgrade
-pip install octoprint
+pip install octoprint==1.3.12
 sudo usermod -a -G tty pi
 sudo usermod -a -G dialout pi
 wget https://github.com/foosel/OctoPrint/raw/master/scripts/octoprint.init && sudo mv octoprint.init /etc/init.d/octoprint
@@ -38,7 +38,12 @@ wget https://github.com/matb97/SigmaPrint/raw/master/webcamDaemon && sudo mv web
 chmod +x /home/pi/scripts/webcam
 chmod +x /home/pi/scripts/webcamDaemon
 cd /etc
-sudo sed -i -e '$i /home/pi/scripts/webcam start \n' rc.local
+if grep -Fxq "/home/pi/scripts/webcam start " /etc/rc.local
+then
+    echo "rc.local already updated"
+else
+    sudo sed -i -e '$i /home/pi/scripts/webcam start \n' rc.local
+fi
 pip install "https://github.com/OctoPrint/OctoPrint-DisplayProgress/archive/master.zip"
 pip install "https://github.com/jneilliii/OctoPrint-CustomBackground/archive/master.zip"
 pip install "https://github.com/derPicknicker1/OctoPrint-Mmu2filamentselect/archive/master.zip"
