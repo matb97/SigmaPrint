@@ -25,6 +25,14 @@ wget https://github.com/foosel/OctoPrint/raw/master/scripts/octoprint.init && su
 wget https://github.com/matb97/SigmaPrint/raw/master/octoprint.default && sudo mv octoprint.default /etc/default/octoprint
 sudo chmod +x /etc/init.d/octoprint
 sudo update-rc.d octoprint defaults
+pip install "https://github.com/OctoPrint/OctoPrint-DisplayProgress/archive/master.zip"
+pip install "https://github.com/jneilliii/OctoPrint-CustomBackground/archive/master.zip"
+pip install "https://github.com/derPicknicker1/OctoPrint-Mmu2filamentselect/archive/master.zip"
+pip install "https://github.com/eyal0/OctoPrint-PrintTimeGenius/archive/master.zip"
+pip install "https://github.com/jneilliii/OctoPrint-TPLinkSmartplug/archive/master.zip"
+pip install "https://github.com/marian42/octoprint-preheat/archive/master.zip"
+pip install "https://github.com/BrokenFire/OctoPrint-SimpleEmergencyStop/archive/master.zip"
+pip install "https://github.com/TheSpaghettiDetective/OctoPrint-TheSpaghettiDetective/archive/master.zip"
 deactivate
 cd ~
 git clone https://github.com/jacksonliam/mjpg-streamer.git
@@ -44,14 +52,6 @@ then
 else
     sudo sed -i -e '$i /home/pi/scripts/webcam start \n' rc.local
 fi
-pip install "https://github.com/OctoPrint/OctoPrint-DisplayProgress/archive/master.zip"
-pip install "https://github.com/jneilliii/OctoPrint-CustomBackground/archive/master.zip"
-pip install "https://github.com/derPicknicker1/OctoPrint-Mmu2filamentselect/archive/master.zip"
-pip install "https://github.com/eyal0/OctoPrint-PrintTimeGenius/archive/master.zip"
-pip install "https://github.com/jneilliii/OctoPrint-TPLinkSmartplug/archive/master.zip"
-pip install "https://github.com/marian42/octoprint-preheat/archive/master.zip"
-pip install "https://github.com/BrokenFire/OctoPrint-SimpleEmergencyStop/archive/master.zip"
-pip install "https://github.com/TheSpaghettiDetective/OctoPrint-TheSpaghettiDetective/archive/master.zip"
 cd ~
 mkdir .octoprint
 cd .octoprint
