@@ -63,4 +63,5 @@ wget https://github.com/matb97/SigmaPrint/raw/master/config.yaml
 sudo mv config.yaml /home/pi/.octoprint/config.yaml
 wget https://github.com/matb97/SigmaPrint/raw/master/users.yaml
 sudo mv users.yaml /home/pi/.octoprint/users.yaml
+sudo rm $0
 sudo shutdown -r now
