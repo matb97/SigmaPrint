@@ -56,6 +56,9 @@ cd ~
 mkdir .octoprint
 cd .octoprint
 mkdir printerProfiles
+mkdir data
+cd data
+mkdir custombackground
 cd ~
 wget https://github.com/matb97/SigmaPrint/raw/master/_default.profile
 sudo mv _default.profile /home/pi/.octoprint/printerProfiles/_default.profile
@@ -63,5 +66,7 @@ wget https://github.com/matb97/SigmaPrint/raw/master/config.yaml
 sudo mv config.yaml /home/pi/.octoprint/config.yaml
 wget https://github.com/matb97/SigmaPrint/raw/master/users.yaml
 sudo mv users.yaml /home/pi/.octoprint/users.yaml
+wget https://github.com/matb97/SigmaPrint/raw/master/logoBg.png
+sudo mv logoBg.png /home/pi/.octoprint/data/custombackground/logoBg.png
 sudo rm $0
 sudo shutdown -r now
