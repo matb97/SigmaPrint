@@ -1,7 +1,7 @@
 cd ~
 sudo apt update
 sudo apt upgrade -y
-#sudo apt remove -y python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
+sudo apt remove -y python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
 sudo rm -r OctoPrint
 sudo rm -r mjpg-streamer
 sudo rm -r .octoprint
@@ -11,7 +11,7 @@ sudo rm octoprint
 sudo rm webcamStart
 cd /etc/default
 sudo rm octoprint
-#sudo apt autoremove -y
+sudo apt autoremove -y
 cd ~
 sudo apt install -y python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
 mkdir OctoPrint && cd OctoPrint
