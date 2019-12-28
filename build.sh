@@ -1,9 +1,11 @@
-cd ~
 #Update server backbone
+cd ~
 sudo apt update
 sudo apt upgrade -y
+
 #Removal of OctoPrint dependencies
 sudo apt remove -y python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
+
 #Removal of OctoPrint system files
 sudo rm -r OctoPrint
 sudo rm -r mjpg-streamer
@@ -11,14 +13,16 @@ sudo rm -r .octoprint
 sudo rm -r scripts
 cd /etc/init.d
 sudo rm octoprint
-sudo rm webcamStart
 cd /etc/default
 sudo rm octoprint
+
 #Clean up
 sudo apt autoremove -y
-cd ~
+
 #Install OctoPrint dependencies
+cd ~
 sudo apt install -y python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
+
 #Install OctoPrint system files
 mkdir OctoPrint && cd OctoPrint
 virtualenv venv
@@ -31,6 +35,7 @@ wget https://github.com/foosel/OctoPrint/raw/master/scripts/octoprint.init && su
 wget https://github.com/matb97/SigmaPrint/raw/master/octoprint.default && sudo mv octoprint.default /etc/default/octoprint
 sudo chmod +x /etc/init.d/octoprint
 sudo update-rc.d octoprint defaults
+
 #Install Plugins
 pip install "https://github.com/OctoPrint/OctoPrint-DisplayProgress/archive/master.zip"
 pip install "https://github.com/jneilliii/OctoPrint-CustomBackground/archive/master.zip"
@@ -41,8 +46,9 @@ pip install "https://github.com/marian42/octoprint-preheat/archive/master.zip"
 pip install "https://github.com/BrokenFire/OctoPrint-SimpleEmergencyStop/archive/master.zip"
 pip install "https://github.com/FormerLurker/Octolapse/archive/v0.3.4.zip"
 deactivate
-cd ~
+
 #Install webcam feed
+cd ~
 git clone https://github.com/jacksonliam/mjpg-streamer.git
 cd mjpg-streamer/mjpg-streamer-experimental
 export LD_LIBRARY_PATH=.
@@ -60,6 +66,7 @@ then
 else
     sudo sed -i -e '$i /home/pi/scripts/webcam start \n' rc.local
 fi
+
 #Retrieve and apply Sigma settings
 cd ~
 mkdir .octoprint
@@ -80,5 +87,7 @@ wget https://github.com/matb97/SigmaPrint/raw/master/logoBg.png
 sudo mv logoBg.png /home/pi/.octoprint/data/custombackground/logoBg.png
 wget https://github.com/matb97/SigmaPrint/raw/master/settings.json
 sudo mv settings.json /home/pi/.octoprint/data/octolapse/settings.json
+
+#Clean up and restart
 sudo rm $0
 sudo shutdown -r now
