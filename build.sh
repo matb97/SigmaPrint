@@ -1,39 +1,39 @@
 cd ~
 sudo apt update
 sudo apt upgrade -y
-#sudo apt remove -y python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
-#sudo rm -r OctoPrint
+sudo apt remove -y python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
+sudo rm -r OctoPrint
 sudo rm -r mjpg-streamer
-#sudo rm -r .octoprint
+sudo rm -r .octoprint
 sudo rm -r scripts
 cd /etc/init.d
-#sudo rm octoprint
+sudo rm octoprint
 sudo rm webcamStart
 cd /etc/default
-#sudo rm octoprint
-#sudo apt autoremove -y
+sudo rm octoprint
+sudo apt autoremove -y
 cd ~
-#sudo apt install -y python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
-#mkdir OctoPrint && cd OctoPrint
-#virtualenv venv
-#source venv/bin/activate
-#pip install pip --upgrade
-#pip install octoprint==1.3.12
-#sudo usermod -a -G tty pi
-#sudo usermod -a -G dialout pi
-#wget https://github.com/foosel/OctoPrint/raw/master/scripts/octoprint.init && sudo mv octoprint.init /etc/init.d/octoprint
-#wget https://github.com/matb97/SigmaPrint/raw/master/octoprint.default && sudo mv octoprint.default /etc/default/octoprint
-#sudo chmod +x /etc/init.d/octoprint
-#sudo update-rc.d octoprint defaults
-#pip install "https://github.com/OctoPrint/OctoPrint-DisplayProgress/archive/master.zip"
-#pip install "https://github.com/jneilliii/OctoPrint-CustomBackground/archive/master.zip"
-#pip install "https://github.com/derPicknicker1/OctoPrint-Mmu2filamentselect/archive/master.zip"
-#pip install "https://github.com/eyal0/OctoPrint-PrintTimeGenius/archive/master.zip"
-#pip install "https://github.com/jneilliii/OctoPrint-TPLinkSmartplug/archive/master.zip"
-#pip install "https://github.com/marian42/octoprint-preheat/archive/master.zip"
-#pip install "https://github.com/BrokenFire/OctoPrint-SimpleEmergencyStop/archive/master.zip"
-#pip install "https://github.com/TheSpaghettiDetective/OctoPrint-TheSpaghettiDetective/archive/master.zip"
-#deactivate
+sudo apt install -y python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
+mkdir OctoPrint && cd OctoPrint
+virtualenv venv
+source venv/bin/activate
+pip install pip --upgrade
+pip install octoprint==1.3.12
+sudo usermod -a -G tty pi
+sudo usermod -a -G dialout pi
+wget https://github.com/foosel/OctoPrint/raw/master/scripts/octoprint.init && sudo mv octoprint.init /etc/init.d/octoprint
+wget https://github.com/matb97/SigmaPrint/raw/master/octoprint.default && sudo mv octoprint.default /etc/default/octoprint
+sudo chmod +x /etc/init.d/octoprint
+sudo update-rc.d octoprint defaults
+pip install "https://github.com/OctoPrint/OctoPrint-DisplayProgress/archive/master.zip"
+pip install "https://github.com/jneilliii/OctoPrint-CustomBackground/archive/master.zip"
+pip install "https://github.com/derPicknicker1/OctoPrint-Mmu2filamentselect/archive/master.zip"
+pip install "https://github.com/eyal0/OctoPrint-PrintTimeGenius/archive/master.zip"
+pip install "https://github.com/jneilliii/OctoPrint-TPLinkSmartplug/archive/master.zip"
+pip install "https://github.com/marian42/octoprint-preheat/archive/master.zip"
+pip install "https://github.com/BrokenFire/OctoPrint-SimpleEmergencyStop/archive/master.zip"
+pip install "https://github.com/FormerLurker/Octolapse/archive/v0.3.4.zip"
+deactivate
 cd ~
 git clone https://github.com/jacksonliam/mjpg-streamer.git
 cd mjpg-streamer/mjpg-streamer-experimental
@@ -53,20 +53,20 @@ else
     sudo sed -i -e '$i /home/pi/scripts/webcam start \n' rc.local
 fi
 cd ~
-#mkdir .octoprint
-#cd .octoprint
-#mkdir printerProfiles
-#mkdir data
-#cd data
-#mkdir custombackground
-#cd ~
-#wget https://github.com/matb97/SigmaPrint/raw/master/_default.profile
-#sudo mv _default.profile /home/pi/.octoprint/printerProfiles/_default.profile
-#wget https://github.com/matb97/SigmaPrint/raw/master/config.yaml
-#sudo mv config.yaml /home/pi/.octoprint/config.yaml
-#wget https://github.com/matb97/SigmaPrint/raw/master/users.yaml
-#sudo mv users.yaml /home/pi/.octoprint/users.yaml
-#wget https://github.com/matb97/SigmaPrint/raw/master/logoBg.png
-#sudo mv logoBg.png /home/pi/.octoprint/data/custombackground/logoBg.png
+mkdir .octoprint
+cd .octoprint
+mkdir printerProfiles
+mkdir data
+cd data
+mkdir custombackground
+cd ~
+wget https://github.com/matb97/SigmaPrint/raw/master/_default.profile
+sudo mv _default.profile /home/pi/.octoprint/printerProfiles/_default.profile
+wget https://github.com/matb97/SigmaPrint/raw/master/config.yaml
+sudo mv config.yaml /home/pi/.octoprint/config.yaml
+wget https://github.com/matb97/SigmaPrint/raw/master/users.yaml
+sudo mv users.yaml /home/pi/.octoprint/users.yaml
+wget https://github.com/matb97/SigmaPrint/raw/master/logoBg.png
+sudo mv logoBg.png /home/pi/.octoprint/data/custombackground/logoBg.png
 sudo rm $0
 sudo shutdown -r now
