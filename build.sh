@@ -4,7 +4,7 @@ sudo apt update
 sudo apt upgrade -y
 
 #Removal of OctoPrint dependencies
-sudo apt remove -y python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
+sudo apt remove -y python-pip python3-pip python-dev python3-dev python-setuptools python3-setuptools python-virtualenv python3-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
 
 #Removal of OctoPrint system files
 sudo rm -r OctoPrint
@@ -21,7 +21,7 @@ sudo apt autoremove -y
 
 #Install OctoPrint dependencies
 cd ~
-sudo apt install -y python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
+sudo apt install -y python3 python3-pip python3-dev python3-setuptools python3-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
 
 #Install OctoPrint system files
 mkdir OctoPrint && cd OctoPrint
