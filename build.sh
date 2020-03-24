@@ -28,7 +28,7 @@ mkdir OctoPrint && cd OctoPrint
 virtualenv venv
 source venv/bin/activate
 pip install pip --upgrade
-pip install octoprint==1.3.12
+pip install octoprint==1.4.0
 sudo usermod -a -G tty pi
 sudo usermod -a -G dialout pi
 wget https://github.com/foosel/OctoPrint/raw/master/scripts/octoprint.init && sudo mv octoprint.init /etc/init.d/octoprint
