@@ -4,7 +4,7 @@ sudo apt update
 sudo apt upgrade -y
 
 #Removal of OctoPrint dependencies
-sudo apt remove -y python3-pip python3-dev python3-setuptools python3-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
+#sudo apt remove -y python3-pip python3-dev python3-setuptools python3-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
 
 #Removal of OctoPrint system files
 sudo rm -r OctoPrint
@@ -25,7 +25,7 @@ sudo apt install -y python3 python3-pip python3-dev python3-setuptools python3-v
 
 #Install OctoPrint system files
 mkdir OctoPrint && cd OctoPrint
-python3 -m virtualenv venv
+python3 -m virtualenv -p /usr/bin/python3 venv
 source venv/bin/activate
 sudo -H pip3 install --upgrade pip
 pip3 install octoprint==1.4.0
