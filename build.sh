@@ -3,9 +3,6 @@ cd ~
 sudo apt update
 sudo apt upgrade -y
 
-#Removal of OctoPrint dependencies
-sudo apt remove -y python3-pip python3-dev python3-setuptools python3-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
-
 #Removal of OctoPrint system files
 sudo rm -r OctoPrint
 sudo rm -r mjpg-streamer
@@ -15,6 +12,9 @@ cd /etc/init.d
 sudo rm octoprint
 cd /etc/default
 sudo rm octoprint
+
+#Removal of OctoPrint dependencies
+sudo apt remove -y python3-pip python3-dev python3-setuptools python3-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
 
 #Clean up
 sudo apt autoremove -y
