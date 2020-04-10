@@ -13,9 +13,12 @@ sudo rm octoprint
 cd /etc/default
 sudo rm octoprint
 
+#Removal of Python3
+sudo apt remove -y python3 python3-pip python3-dev python3-setuptools python3-virtualenv
+
 #Install OctoPrint dependencies
 cd ~
-sudo apt install -y python python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
+sudo apt install -y python python-pip python-dev python-setuptools python-virtualenv
 
 #Install OctoPrint system files
 mkdir OctoPrint && cd OctoPrint
