@@ -14,21 +14,21 @@ cd /etc/default
 sudo rm octoprint
 
 #Removal of OctoPrint dependencies
-sudo apt remove -y python3-pip python3-dev python3-setuptools python3-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
+sudo apt remove -y python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
 
 #Clean up
 sudo apt autoremove -y
 
 #Install OctoPrint dependencies
 cd ~
-sudo apt install -y python3 python3-pip python3-dev python3-setuptools python3-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
+sudo apt install -y python python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
 
 #Install OctoPrint system files
 mkdir OctoPrint && cd OctoPrint
-python3 -m virtualenv -p /usr/bin/python3 venv
+virtualenv venv
 source venv/bin/activate
-sudo -H pip3 install --upgrade pip
-pip3 install octoprint==1.4.0
+sudo pip install --upgrade pip
+pip install octoprint==1.4.0
 sudo usermod -a -G tty pi
 sudo usermod -a -G dialout pi
 wget https://github.com/foosel/OctoPrint/raw/master/scripts/octoprint.init && sudo mv octoprint.init /etc/init.d/octoprint
@@ -37,14 +37,14 @@ sudo chmod +x /etc/init.d/octoprint
 sudo update-rc.d octoprint defaults
 
 #Install Plugins
-pip3 install "https://github.com/OctoPrint/OctoPrint-DisplayProgress/archive/master.zip"
-pip3 install "https://github.com/jneilliii/OctoPrint-CustomBackground/archive/master.zip"
-pip3 install "https://github.com/derPicknicker1/OctoPrint-Mmu2filamentselect/archive/master.zip"
-pip3 install "https://github.com/eyal0/OctoPrint-PrintTimeGenius/archive/master.zip"
-pip3 install "https://github.com/jneilliii/OctoPrint-TPLinkSmartplug/archive/master.zip"
-pip3 install "https://github.com/marian42/octoprint-preheat/archive/master.zip"
-pip3 install "https://github.com/BrokenFire/OctoPrint-SimpleEmergencyStop/archive/master.zip"
-pip3 install "https://github.com/FormerLurker/Octolapse/archive/v0.3.4.zip"
+pip install "https://github.com/OctoPrint/OctoPrint-DisplayProgress/archive/master.zip"
+pip install "https://github.com/jneilliii/OctoPrint-CustomBackground/archive/master.zip"
+pip install "https://github.com/derPicknicker1/OctoPrint-Mmu2filamentselect/archive/master.zip"
+pip install "https://github.com/eyal0/OctoPrint-PrintTimeGenius/archive/master.zip"
+pip install "https://github.com/jneilliii/OctoPrint-TPLinkSmartplug/archive/master.zip"
+pip install "https://github.com/marian42/octoprint-preheat/archive/master.zip"
+pip install "https://github.com/BrokenFire/OctoPrint-SimpleEmergencyStop/archive/master.zip"
+pip install "https://github.com/FormerLurker/Octolapse/archive/v0.3.4.zip"
 deactivate
 
 #Install webcam feed
