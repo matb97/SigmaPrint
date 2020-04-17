@@ -3,40 +3,9 @@ cd ~
 sudo apt update
 sudo apt upgrade -y
 
-#Removal of OctoPrint system files
-sudo rm -r OctoPrint
-sudo rm -r mjpg-streamer
-sudo rm -r .octoprint
-sudo rm -r scripts
-cd /etc/init.d
-sudo rm octoprint
-cd /etc/default
-sudo rm octoprint
-
-#Removal of OctoPrint dependencies
-sudo apt remove -y python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
-
-#Clean up
-sudo apt autoremove -y
-
-#Install OctoPrint dependencies
-cd ~
-sudo apt install -y python python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
-
-#Install OctoPrint system files
-mkdir OctoPrint && cd OctoPrint
-virtualenv venv
-source venv/bin/activate
-sudo pip install --upgrade pip
-pip install octoprint==1.4.0
-sudo usermod -a -G tty pi
-sudo usermod -a -G dialout pi
-wget https://github.com/foosel/OctoPrint/raw/master/scripts/octoprint.init && sudo mv octoprint.init /etc/init.d/octoprint
-wget https://github.com/matb97/SigmaPrint/raw/master/octoprint.default && sudo mv octoprint.default /etc/default/octoprint
-sudo chmod +x /etc/init.d/octoprint
-sudo update-rc.d octoprint defaults
-
 #Install Plugins
+cd ~
+source oprint/bin/activate
 pip install "https://github.com/OctoPrint/OctoPrint-DisplayProgress/archive/master.zip"
 pip install "https://github.com/jneilliii/OctoPrint-CustomBackground/archive/master.zip"
 pip install "https://github.com/derPicknicker1/OctoPrint-Mmu2filamentselect/archive/master.zip"
@@ -46,26 +15,6 @@ pip install "https://github.com/marian42/octoprint-preheat/archive/master.zip"
 pip install "https://github.com/BrokenFire/OctoPrint-SimpleEmergencyStop/archive/master.zip"
 pip install "https://github.com/FormerLurker/Octolapse/archive/v0.3.4.zip"
 deactivate
-
-#Install webcam feed
-cd ~
-git clone https://github.com/jacksonliam/mjpg-streamer.git
-cd mjpg-streamer/mjpg-streamer-experimental
-export LD_LIBRARY_PATH=.
-make
-cd ~
-mkdir scripts
-wget https://github.com/matb97/SigmaPrint/raw/master/webcam && sudo mv webcam /home/pi/scripts/webcam
-wget https://github.com/matb97/SigmaPrint/raw/master/webcamDaemon && sudo mv webcamDaemon /home/pi/scripts/webcamDaemon
-chmod +x /home/pi/scripts/webcam
-chmod +x /home/pi/scripts/webcamDaemon
-cd /etc
-if grep -Fxq "/home/pi/scripts/webcam start " /etc/rc.local
-then
-    echo "rc.local already updated"
-else
-    sudo sed -i -e '$i /home/pi/scripts/webcam start \n' rc.local
-fi
 
 #Retrieve and apply Sigma settings
 cd ~
