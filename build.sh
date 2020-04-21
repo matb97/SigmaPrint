@@ -9,7 +9,6 @@ source oprint/bin/activate
 pip install octoprint==1.4.0
 
 #Install Plugins
-source venv/bin/activate
 sudo pip install --upgrade pip
 pip install "https://github.com/OctoPrint/OctoPrint-DisplayProgress/archive/master.zip"
 pip install "https://github.com/jneilliii/OctoPrint-CustomBackground/archive/master.zip"
