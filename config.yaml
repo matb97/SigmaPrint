@@ -1,103 +1,99 @@
 accessControl:
-  salt: PKhJmUH9eprjmK61JiPwIwmcipdYNRmx
+    salt: PKhJmUH9eprjmK61JiPwIwmcipdYNRmx
 api:
-  key: E79F69B7292B4AE885A906A5FEFF689B
+    key: E79F69B7292B4AE885A906A5FEFF689B
 appearance:
-  color: blue
-  name: Sigma 3D Printer Control
+    color: blue
+    name: Sigma 3D Printer Control
 plugins:
-  announcements:
-    _config_version: 1
-    channels:
-      _blog:
-        read_until: 1576506900
-      _important:
-        read_until: 1521111600
-      _octopi:
-        read_until: 1573722900
-      _plugins:
-        read_until: 1576627200
-      _releases:
-        read_until: 1576158300
-  custombackground:
-    background_url: /plugin/custombackground/logoBg.png
-    fillMethod: contain
-  discovery:
-    upnpUuid: d3290d0a-397a-46a2-8016-f95d4ea2f071
-  errortracking:
-    unique_id: 38ebd73c-982b-4738-baff-f9f0e5ef8b9d
-  softwareupdate:
-    _config_version: 6
-    check_providers:
-      PrintTimeGenius: PrintTimeGenius
-      TheSpaghettiDetective: thespaghettidetective
-      custombackground: custombackground
-      displayprogress: displayprogress
-      preheat: preheat
-      simpleemergencystop: simpleemergencystop
-      tplinksmartplug: tplinksmartplug
-  tplinksmartplug:
-    _config_version: 10
-    arrSmartplugs:
-    - autoConnect: true
-      autoConnectDelay: 10
-      autoDisconnect: true
-      autoDisconnectDelay: 0
-      btnColor: '#808080'
-      countdownOffDelay: 1
-      countdownOnDelay: 1
-      currentState: 'off'
-      displayWarning: true
-      emeter:
-        get_realtime: {}
-      event_on_disconnect: false
-      event_on_error: false
-      gcodeEnabled: false
-      gcodeOffDelay: 0
-      gcodeOnDelay: 0
-      icon: icon-bolt
-      ip: 192.168.0.20
-      label: ''
-      sysCmdOff: false
-      sysCmdOffDelay: 0
-      sysCmdOn: false
-      sysCmdOnDelay: 0
-      sysRunCmdOff: ''
-      sysRunCmdOn: ''
-      thermal_runaway: false
-      useCountdownRules: false
-      warnPrinting: false
-  tracking:
-    enabled: true
-    unique_id: d62b5076-2180-4c92-8d5d-36639f049950
+    announcements:
+        _config_version: 1
+        channels:
+            _blog:
+                read_until: 1585659600
+            _important:
+                read_until: 1521111600
+            _octopi:
+                read_until: 1573722900
+            _plugins:
+                read_until: 1585699200
+            _releases:
+                read_until: 1583322300
+    custombackground:
+        background_url: /plugin/custombackground/logoBg.png
+        fillMethod: contain
+    discovery:
+        upnpUuid: d3290d0a-397a-46a2-8016-f95d4ea2f071
+    errortracking:
+        unique_id: 38ebd73c-982b-4738-baff-f9f0e5ef8b9d
+    softwareupdate:
+        _config_version: 7
+    thespaghettidetective:
+        auth_token: 349f5216124e02bfb3c2
+        endpoint_prefix: http://192.168.0.101:3334/
+    tplinksmartplug:
+        _config_version: 11
+        arrSmartplugs:
+        -   autoConnect: true
+            autoConnectDelay: 10
+            autoDisconnect: true
+            autoDisconnectDelay: 0
+            automaticShutdownEnabled: false
+            btnColor: '#808080'
+            countdownOffDelay: 1
+            countdownOnDelay: 1
+            currentState: 'on'
+            displayWarning: true
+            emeter:
+                get_realtime: {}
+            event_on_disconnect: false
+            event_on_error: false
+            gcodeEnabled: false
+            gcodeOffDelay: 0
+            gcodeOnDelay: 0
+            icon: icon-bolt
+            ip: 192.168.0.20
+            label: ''
+            sysCmdOff: false
+            sysCmdOffDelay: 0
+            sysCmdOn: false
+            sysCmdOnDelay: 0
+            sysRunCmdOff: ''
+            sysRunCmdOn: ''
+            thermal_runaway: false
+            useCountdownRules: false
+            warnPrinting: false
+    tracking:
+        enabled: true
+        unique_id: d62b5076-2180-4c92-8d5d-36639f049950
 printerProfiles:
-  default: _default
+    default: _default
 server:
-  commands:
-    serverRestartCommand: sudo service octoprint restart
-    systemRestartCommand: sudo shutdown -r now
-    systemShutdownCommand: sudo shutdown -H now
-  firstRun: false
-  onlineCheck:
-    enabled: true
-  pluginBlacklist:
-    enabled: true
-  secretKey: pXShlivPB7hSHcqTZx2PirvORxoMmoLB
-  seenWizards:
-    corewizard: 3
-    thespaghettidetective: 2
-    tracking: null
+    commands:
+        serverRestartCommand: sudo service octoprint restart
+        systemRestartCommand: sudo shutdown -r now
+        systemShutdownCommand: sudo shutdown -H now
+    firstRun: false
+    onlineCheck:
+        enabled: true
+    pluginBlacklist:
+        enabled: true
+    secretKey: pXShlivPB7hSHcqTZx2PirvORxoMmoLB
+    seenWizards:
+        corewizard: 3
+        thespaghettidetective: 2
+        tracking: null
 temperature:
-  profiles:
-  - bed: 100
-    chamber: null
-    extruder: 210
-    name: ABS
-  - bed: 60
-    chamber: null
-    extruder: 180
-    name: PLA
+    profiles:
+    -   bed: 100
+        chamber: null
+        extruder: 210
+        name: ABS
+    -   bed: 60
+        chamber: null
+        extruder: 180
+        name: PLA
 webcam:
-  ffmpeg: /usr/bin/ffmpeg
-  snapshot: http://77.102.176.103:8080/?action=snapshot
-  stream: http://77.102.176.103:8080/?action=stream
+    ffmpeg: /usr/bin/ffmpeg
+    snapshot: http://77.102.176.103:8080/?action=snapshot
+    stream: http://77.102.176.103:8080/?action=stream
