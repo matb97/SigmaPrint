@@ -1,7 +1,7 @@
 #Update server backbone
 cd ~
 sudo apt update
-sudo apt upgrade -y
+#sudo apt upgrade -y
 
 #Update OctoPrint to 1.4.0
 cd ~
