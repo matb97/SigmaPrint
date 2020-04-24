@@ -1,16 +1,16 @@
 #Update server backbone
 cd ~
 sudo apt update
-#sudo apt upgrade -y
+sudo apt upgrade -y
+sudo apt install -y python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential
 
 #Update OctoPrint to 1.4.0
 cd ~
 source oprint/bin/activate
 pip install --upgrade pip
-pip install octoprint==1.4.0
+pip install --upgrade octoprint
 
 #Install Plugins
-pip install --upgrade pip
 pip install "https://github.com/OctoPrint/OctoPrint-DisplayProgress/archive/master.zip"
 pip install "https://github.com/jneilliii/OctoPrint-CustomBackground/archive/master.zip"
 pip install "https://github.com/derPicknicker1/OctoPrint-Mmu2filamentselect/archive/master.zip"
