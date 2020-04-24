@@ -6,10 +6,11 @@ sudo apt update
 #Update OctoPrint to 1.4.0
 cd ~
 source oprint/bin/activate
+pip install --upgrade pip
 pip install octoprint==1.4.0
 
 #Install Plugins
-sudo pip install --upgrade pip
+pip install --upgrade pip
 pip install "https://github.com/OctoPrint/OctoPrint-DisplayProgress/archive/master.zip"
 pip install "https://github.com/jneilliii/OctoPrint-CustomBackground/archive/master.zip"
 pip install "https://github.com/derPicknicker1/OctoPrint-Mmu2filamentselect/archive/master.zip"
