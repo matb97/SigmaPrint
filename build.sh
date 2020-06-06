@@ -2,39 +2,23 @@
 cd ~
 sudo apt update
 sudo apt upgrade -y
+sudo apt-get install gawk util-linux qemu-user-static git p7zip-full python3
 
-#Removal of OctoPrint dependencies
-sudo apt remove -y python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
+#Build OctoPi
+git clone https://github.com/guysoft/CustomPiOS.git
+git clone https://github.com/guysoft/OctoPi.git
+cd OctoPi/src/image
+wget -c --trust-server-names 'https://downloads.raspberrypi.org/raspios_lite_armhf_latest'
+cd ..
+../../CustomPiOS/src/update-custompios-paths
+sudo modprobe loop
+sudo bash -x ./build_dist
 
-#Removal of OctoPrint system files
-sudo rm -r OctoPrint
-sudo rm -r mjpg-streamer
-sudo rm -r .octoprint
-sudo rm -r scripts
-cd /etc/init.d
-sudo rm octoprint
-cd /etc/default
-sudo rm octoprint
-
-#Clean up
-sudo apt autoremove -y
-
-#Install OctoPrint dependencies
+#Update OctoPrint to 1.4.0
 cd ~
-sudo apt install -y python python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential subversion libjpeg62-turbo-dev imagemagick ffmpeg libv4l-dev cmake
-
-#Install OctoPrint system files
-mkdir OctoPrint && cd OctoPrint
-virtualenv venv
-source venv/bin/activate
-sudo pip install --upgrade pip
-pip install octoprint==1.4.0
-sudo usermod -a -G tty pi
-sudo usermod -a -G dialout pi
-wget https://github.com/foosel/OctoPrint/raw/master/scripts/octoprint.init && sudo mv octoprint.init /etc/init.d/octoprint
-wget https://github.com/matb97/SigmaPrint/raw/master/octoprint.default && sudo mv octoprint.default /etc/default/octoprint
-sudo chmod +x /etc/init.d/octoprint
-sudo update-rc.d octoprint defaults
+source oprint/bin/activate
+pip install --upgrade pip
+pip install --upgrade octoprint
 
 #Install Plugins
 pip install "https://github.com/OctoPrint/OctoPrint-DisplayProgress/archive/master.zip"
@@ -48,29 +32,13 @@ pip install "https://github.com/FormerLurker/Octolapse/archive/v0.3.4.zip"
 pip install "https://github.com/TheSpaghettiDetective/OctoPrint-TheSpaghettiDetective/archive/master.zip"
 deactivate
 
-#Install webcam feed
-cd ~
-git clone https://github.com/jacksonliam/mjpg-streamer.git
-cd mjpg-streamer/mjpg-streamer-experimental
-export LD_LIBRARY_PATH=.
-make
-cd ~
-mkdir scripts
-wget https://github.com/matb97/SigmaPrint/raw/master/webcam && sudo mv webcam /home/pi/scripts/webcam
-wget https://github.com/matb97/SigmaPrint/raw/master/webcamDaemon && sudo mv webcamDaemon /home/pi/scripts/webcamDaemon
-chmod +x /home/pi/scripts/webcam
-chmod +x /home/pi/scripts/webcamDaemon
-cd /etc
-if grep -Fxq "/home/pi/scripts/webcam start " /etc/rc.local
-then
-    echo "rc.local already updated"
-else
-    sudo sed -i -e '$i /home/pi/scripts/webcam start \n' rc.local
-fi
-
 #Retrieve and apply Sigma settings
+#HAProxy
+cd /etc/haproxy
+sudo rm haproxy.cfg
+sudo wget https://github.com/matb97/SigmaPrint/raw/master/haproxy.cfg
+
 cd ~
-mkdir .octoprint
 cd .octoprint
 mkdir printerProfiles
 mkdir data
